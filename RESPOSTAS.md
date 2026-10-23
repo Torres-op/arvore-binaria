@@ -49,16 +49,16 @@ Tanto AVL quanto Rubro-Negra garantem **altura O(log n)** e, portanto:
 
 ## Questão 5 — Importação IPTU ordenada: **AVL**
 
-- **Carga:** importação 1× (dados **já ordenados**); consulta permanente o dia todo.
-- **Degeneração:** sem balanceamento, BST vira lista O(n). Ambas corrigem, mas AVL fica mais achatada.
-- **Rotações na carga:** ambas rotacionam bastante na importação ordenada, mas isso ocorre **uma vez**. Após carregada, só há busca → altura menor vence.
-- **Decisão:** **AVL** — o custo de carga é amortizado pelas consultas permanentes.
+- **Carga:** importação 1× (dados já ordenados), consulta permanente o dia todo.
+- **Degeneração:** sem balanceamento, BST vira lista O(n). Ambas corrigem, mas AVL fica mais achatada em comparação com RN.
+- **Rotações na carga:** ambas rotacionam bastante na importação ordenada, mas isso ocorre apenas uma vez. Após carregada, só há busca, logo, altura menor vence.
+- **Decisão:** **AVL** o custo de carga é amortizado pelas consultas permanentes.
 
 ---
 
 ## Questão 6 — Fila do escalonador: **Rubro-Negra**
 
-- **Carga:** dezenas de milhares de inserções/segundo (caminho crítico); busca quase nunca.
+- **Carga:** dezenas de milhares de inserções/segundo, busca quase nunca.
 - **Rotações:** cada rotação é tempo de CPU roubado. RN: ≤2 rotações/inserção, amortizado O(1). AVL: pode fazer O(log n) rotações/inserção.
 - **Evidência real:** o kernel Linux usa **red-black trees** no escalonador CFS (`rbtree`), exatamente por esse motivo.
-- **Decisão:** **Rubro-Negra** — escrita extrema é o gargalo.
+- **Decisão:** **Rubro-Negra**  escrita extrema é o gargalo.
